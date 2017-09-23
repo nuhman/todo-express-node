@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Caveat');
+
+*{
+  margin: 0;
+  border: 0;
+}
+body{
+  background: #364F6B;
+  font-family: 'Anton', sans-serif;
+}
+.jumbotron{
+  background: #F5F5F5;
+  color: #364F6B;
+}
+.items{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
+}
+.completed{
+    background: #364F6B;
+    color:white;
+}
+.controls{
+  float: right;
+  margin-right: 3%;
+  margin-left: 3%;
+}
+.okay{
+  color: #3FC1C9;
+}
+.delete{
+  color: #FC5185;
+  margin-right: 3%;
+}
+i, span{
+  font-size: 1.1em;
+}
+#idx{
+  display: none;
+}
+.list-group-item{
+  font-family: 'Caveat', cursive;
+  font-size: 1.8em;
+}
