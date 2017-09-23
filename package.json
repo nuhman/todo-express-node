@@ -1,0 +1,25 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "description": "todo web-app that allows users to add, edit and update tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/kgunst/MuhammedNuhman.git"
+  },
+  "author": "Muhammed Nuhman",
+  "license": "MIT",
+  "dependencies": {
+    "express": "*",
+    "ejs" : "*",
+    "cookie-session" : "*",
+    "body-parser" : "*"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/kgunst/MuhammedNuhman/issues"
+  },
+  "homepage": "https://gitlab.com/kgunst/MuhammedNuhman#README"
+}
