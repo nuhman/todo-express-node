@@ -4,7 +4,7 @@
   "description": "todo web-app that allows users to add, edit and update tasks",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
