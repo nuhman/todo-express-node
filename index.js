@@ -5,7 +5,12 @@ var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 var app = express();
 
-app.use(session({secret : 'therootpass'}))
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
+
+app.set('view engine', 'ejs')
+
+.use(session({secret : 'therootpass'}))
 
 .use(function(req, res, next){
     if(typeof(req.session.todolist) == 'undefined'){
@@ -36,4 +41,6 @@ app.use(session({secret : 'therootpass'}))
    res.redirect('/todo');
 })
 
-.listen(8080);
+.listen(port, function() {
+    console.log('running on http://localhost:' + port);
+});
