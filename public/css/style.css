@@ -1,24 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Anton|Caveat');
+@import url('https://fonts.googleapis.com/css?family=Raleway|Satisfy');
 
 *{
   margin: 0;
   border: 0;
 }
 body{
-  background: #364F6B;
-  font-family: 'Anton', sans-serif;
+  background:#3EC1D3;
+  font-family: 'Raleway', sans-serif;
 }
+
+header{
+  text-align: center;
+}
+.title{
+  font-weight: 900;
+  font-size: 4em;
+  color: #FFF;
+}
+.title:hover{
+  color: #F6F7D7;
+  cursor: pointer;
+}
+
 .jumbotron{
-  background: #F5F5F5;
-  color: #364F6B;
+  background:  #F6F7D7;
+  color: #212121;
+  width: 75%;
+  margin: 5% auto;
 }
-.items{
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 10%;
-}
+
+
+
 .completed{
-    background: #364F6B;
+    background: #40514E;
     color:white;
 }
 .controls{
@@ -36,10 +50,38 @@ body{
 i, span{
   font-size: 1.1em;
 }
-#idx{
-  display: none;
-}
 .list-group-item{
-  font-family: 'Caveat', cursive;
+  font-family: 'Satisfy', cursive;
   font-size: 1.8em;
 }
+
+
+
+.detail-form{
+  display: none;
+}
+
+.btn-detailed, .btn-danger{
+  min-width: 150px;
+  max-width: 150px;
+  margin-left: 40%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.btn-modal{
+  display: none;
+}
+
+
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #FF2E63;
+    color:#FFF;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
