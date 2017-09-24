@@ -4,35 +4,37 @@ var bodyParser = require('body-parser');
 
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 var app = express();
-var port = process.env.PORT || 8080;
 
-app.set('view engine', 'ejs')
-.use(session({secret : 'therootpass'}))
+app.use(session({secret : 'therrootpass'}))
+
 .use(express.static(__dirname + '/public'))
 
 .use(function(req, res, next){
     if(typeof(req.session.todolist) == 'undefined' || typeof(req.session.completed) == 'undefined'){
       req.session.todolist = [];
       req.session.completed = [];
+      req.session.detailed = 0; //false
       console.log('initialized');
     }
     next();
 })
 
 .get('/todo', function(req, res){
-    res.render('home.ejs',
+    res.render('index.ejs',
     {
       tasks : req.session.todolist,
-      completed : req.session.completed
+      completed : req.session.completed,
+      detailed : req.session.detailed
     });
 })
 
 .post('/todo/add/', urlEncodedParser, function(req, res){
-    if(req.body.newtodo != ''){
-      req.session.todolist.push(req.body.newtodo);
+    if(req.body.todosent != ''){
+      //var text =
+      var obj = [req.body.todosent,req.body.startdate,req.body.location,req.body.attendees,req.body.comments];
+      req.session.todolist.push(obj);
       console.log(req.session.todolist);
       req.session.completed.push(0);
-      console.log(req.session.completed);
     }
     res.redirect('/todo');
 })
@@ -45,6 +47,13 @@ app.set('view engine', 'ejs')
     }
     res.redirect('/todo');
 })
+
+.get('/todo/deleteAll', function(req, res){
+    req.session.todolist = [];
+    req.session.completed = [];
+    res.redirect('/todo');
+})
+
 
 .get('/todo/okay/:id', function(req, res){
   if(req.params.id != ''){
@@ -59,17 +68,21 @@ app.set('view engine', 'ejs')
 .get('/todo/edit/:id', function(req, res){
   if(req.params.id != ''){
     var text = req.session.todolist[req.params.id];
-    //document.getElementById("newtodo").value = text;
+    //document.getElementById("todosent").value = text;
   }
   res.redirect('/todo');
 })
 
-
+.get('/todo/detailed', function(req, res){
+  if(req.session.detailed === 0)
+    req.session.detailed = 1;
+  else
+    req.session.detailed = 0;
+  res.redirect('/todo');
+})
 
 .use(function(req, res){
    res.redirect('/todo');
 })
 
-.listen(port, function() {
-     console.log('running on http://localhost:' + port);
- });
+.listen(8080);
