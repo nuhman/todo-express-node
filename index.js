@@ -25,7 +25,7 @@ app.set('view engine', 'ejs')
 })
 
 .get('/todo', function(req, res){
-    res.render('index.ejs',
+    res.render('home.ejs',
     {
       tasks : req.session.todolist,
       completed : req.session.completed,
