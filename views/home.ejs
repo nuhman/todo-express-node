@@ -175,7 +175,16 @@
 
       function isFormSane(){
           if($("#todosent").val() === '' || $("#startdate").val() === '' || $("#comments").val() === '' ||
-                $("#location").val() === '' || $("#attendees").val() === ''){               
+                $("#location").val() === '' || $("#attendees").val() === ''){
+                  /*
+                  $('.btn-modal').click(function(e){
+                    e.preventDefault();
+                    var mymodal = $('#myModal');
+                    mymodal.find('.modal-body').text('Please fill in all the details');
+                    mymodal.modal('show');
+
+                  });
+                  */
             console.log("tes");
             $('.btn-modal').click();
             return false;
@@ -183,7 +192,9 @@
 
         return true;
       }
-
+/*
+v
+*/
 
   </script>
   </body>
