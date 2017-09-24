@@ -5,7 +5,12 @@ var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 var app = express();
 
-app.use(session({secret : 'therrootpass'}))
+var port = process.env.PORT || 8080;
+
+app.set('view engine', 'ejs')
+
+
+.use(session({secret : 'therrootpass'}))
 
 .use(express.static(__dirname + '/public'))
 
@@ -85,4 +90,6 @@ app.use(session({secret : 'therrootpass'}))
    res.redirect('/todo');
 })
 
-.listen(8080);
+.listen(port, function() {
+     console.log('running on http://localhost:' + port);
+ });
